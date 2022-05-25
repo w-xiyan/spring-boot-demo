@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * <p>
@@ -32,7 +33,7 @@ public class TestController {
      */
     @GetMapping("/test")
     public Dict test(String who) {
-        return Dict.create().set("who", StrUtil.isBlank(who) ? "me" : who);
+        return Dict.create().set("who", StrUtil.isBlank(who) ? "me" : who + UUID.randomUUID());
     }
 
     /**
